@@ -1,5 +1,5 @@
 #!/bin/bash
 
-clang++ ../src/main.cpp \
+clang++ ../src/*.cpp \
 -I ../include \
 -o ../dist/main && ../dist/main
