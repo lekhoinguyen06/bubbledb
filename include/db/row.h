@@ -16,5 +16,8 @@ namespace db
 
         const std::string &key() const;
         const std::string &value() const;
+
+        // void set(std::string, Row);
+        // Row &get(std::string);
     };
 }

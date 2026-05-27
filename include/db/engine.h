@@ -15,17 +15,21 @@ namespace db
         std::unordered_map<std::string, db::Table> tables_;
 
     public:
+        // Engine operations
         Engine();
         ~Engine();
         void start();
         void shutdown();
+        // void query(std::string);
+        // void reset();
+        // void help();
+        // void version();
+
+        // Table operations
         Table &create(std::string);
         void list();
         void show(std::string);
         void destroy(std::string);
-        void insert(std::string, std::string);
-        void erase(std::string, std::string);
-        // Row *get();
-        // void set();
+        // Table &get(std::string);
     };
 }

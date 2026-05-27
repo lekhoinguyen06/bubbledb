@@ -8,8 +8,8 @@ int main()
     engine.list();
     engine.create("products");
     engine.list();
-    engine.insert("users", "benz 18");
-    engine.insert("users", "david 20");
+    // engine.insert("users", "benz 18");
+    // engine.insert("users", "david 20");
     engine.show("users");
     engine.shutdown();
     return 0;
