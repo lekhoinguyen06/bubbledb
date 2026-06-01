@@ -1,4 +1,4 @@
-#include "db/table.h"
+#include "table.h"
 
 using namespace db;
 
@@ -6,13 +6,21 @@ Table::Table(std::string name) : name_(name) {}
 
 Table::~Table() {}
 
-void Table::insert(db::Row r)
+bool Table::insert(std::string k, std::string v)
 {
-    std::pair<std::string, db::Row> new_row(r.key(), r);
-    rows_.insert(new_row);
+    try
+    {
+        Row r(k, v);
+        std::pair<std::string, db::Row> new_row(r.key(), r);
+        rows_.insert(new_row);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
-void Table::erase(std::string row_key)
+bool Table::erase(std::string row_key)
 {
     rows_.erase(row_key);
 }
