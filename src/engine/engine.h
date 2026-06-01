@@ -18,18 +18,21 @@ namespace db
         // Engine operations
         Engine();
         ~Engine();
+
+        // Engine operations
         void start();
         void shutdown();
         // void query(std::string);
-        // void reset();
-        // void help();
-        // void version();
+        void reset();
 
         // Table operations
-        Table &create(std::string);
-        void list();
-        void show(std::string);
-        void destroy(std::string);
-        // Table &get(std::string);
+        std::optional<Table *> create(std::string);
+        bool destroy(std::string);
+        std::optional<Table *> get(std::string);
+
+        // Metadata
+        void list_table();
+        void help();
+        void version();
     };
 }

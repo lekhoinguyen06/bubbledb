@@ -18,13 +18,16 @@ namespace db
         Table(std::string name);
         ~Table();
 
-        void list();
         const std::string &name() const;
-        // void describe();
 
         // Row operations
-        void insert(Row);
-        void erase(std::string);
-        // void replace(std::string, Row);
+        bool insert(std::string, std::string);
+        bool erase(std::string);
+        bool replace(std::string, Row);
+        std::optional<Row *> get(std::string);
+
+        // Metadata
+        void list();
+        void describe();
     };
 }
