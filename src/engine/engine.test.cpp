@@ -22,6 +22,9 @@ TEST_CASE("Table::get()")
     db::Engine e;
     e.create("abc");
 
+    // Success cases
     CHECK(e.get("abc").has_value() == true);
+
+    // Fail cases
     CHECK(e.get("abcd").has_value() == false);
 }
