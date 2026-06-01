@@ -8,21 +8,30 @@ Table::~Table() {}
 
 bool Table::insert(std::string k, std::string v)
 {
-    try
-    {
-        Row r(k, v);
-        std::pair<std::string, db::Row> new_row(r.key(), r);
-        rows_.insert(new_row);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    auto [it, inserted] = rows_.emplace(k, Row(k, v));
+    return insert;
 }
 
 bool Table::erase(std::string row_key)
 {
-    rows_.erase(row_key);
+    return rows_.erase(row_key) > 0;
+}
+
+bool Table::replace(std::string k, std::string v)
+{
+    auto it = rows_.find(k);
+    if (it == rows_.end())
+        return false;
+    it->second = Row(k, v);
+    return true;
+}
+
+std::optional<Row *> Table::get(std::string k)
+{
+    auto it = rows_.find(k);
+    if (it == rows_.end())
+        return nullptr;
+    return &it->second;
 }
 
 const std::string &Table::name() const

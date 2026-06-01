@@ -23,7 +23,7 @@ namespace db
         // Row operations
         bool insert(std::string, std::string);
         bool erase(std::string);
-        bool replace(std::string, Row);
+        bool replace(std::string, std::string);
         std::optional<Row *> get(std::string);
 
         // Metadata
