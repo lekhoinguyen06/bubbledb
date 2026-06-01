@@ -9,7 +9,7 @@ Table::~Table() {}
 bool Table::insert(std::string k, std::string v)
 {
     auto [it, inserted] = rows_.emplace(k, Row(k, v));
-    return insert;
+    return inserted;
 }
 
 bool Table::erase(std::string row_key)
@@ -47,4 +47,11 @@ void Table::list()
         db::Row row = r.second;
         std::cout << "Key: " << row.key() << " Value: " << row.value() << std::endl;
     }
+}
+
+void Table::describe()
+{
+    std::cout << "string, string" << std::endl;
+
+    // Implement std::type_trait in Schema milestone to print Schema type
 }

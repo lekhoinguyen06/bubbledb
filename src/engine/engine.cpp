@@ -21,6 +21,14 @@ void Engine::shutdown()
     std::cout << "Bubble: Shuting down database engine" << std::endl;
 }
 
+std::optional<Table *> Engine::get(std::string table_name)
+{
+    auto it = tables_.find(table_name);
+    if (it == tables_.end())
+        return nullptr;
+    return &it->second;
+}
+
 void Engine::list_table()
 {
     std::cout << "Tables:" << std::endl;
@@ -58,10 +66,16 @@ void Engine::version()
 
 std::optional<Table *> Engine::create(std::string name)
 {
-    Table table(name);
-    std::pair<std::string, Table> new_table(name, table);
-    tables_.insert(new_table);
-    return &tables_.at(name);
+    auto [it, created] = tables_.emplace(name);
+
+    if (created)
+    {
+        return &it->second;
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 bool Engine::destroy(std::string name)
