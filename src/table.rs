@@ -1,31 +1,25 @@
-// Manage: rows
+use std::collections::HashMap;
 
 use crate::row::Row;
 
 pub struct Table {
     id: String,
-    rows: Option<Vec<Row>>,
+    rows: HashMap<String, Row>,
 }
 
 impl Table {
     pub fn new(id: &str) -> Self {
         Table {
             id: id.to_string(),
-            rows: None,
+            rows: HashMap::new(),
         }
     }
 
-    pub fn add(&mut self, r: Row) {
-        match &mut self.rows {
-            Some(rows) => rows.push(r),
-            None => self.rows = Some(vec![r]),
-        }
+    pub fn add(&mut self, r: Row) -> Option<Row> {
+        self.rows.insert(r.k.clone(), r)
     }
 
     pub fn get(&self, k: &str) -> Option<&Row> {
-        match &self.rows {
-            Some(rows) => rows.iter().find(|&x| x.k == k),
-            None => None,
-        }
+        self.rows.get(k)
     }
 }

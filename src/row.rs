@@ -1,5 +1,3 @@
-// Task: store a row
-
 pub struct Row {
     pub k: String,
     pub index: [f64; 384],

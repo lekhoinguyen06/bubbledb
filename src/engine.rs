@@ -1,4 +1,0 @@
-// Manage:
-// - Tables
-// - Query
-// - Config
