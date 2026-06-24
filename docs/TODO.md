@@ -8,6 +8,7 @@
 - Row: Create row
 
 ### In progress
+- LLM: Add TinyLLM
 
 ## Next
 
@@ -15,7 +16,6 @@
 - Row: Edit row
 - Table: Delete row
 - Table: Clear
-- LLM: Add TinyLLM
 - Data: Create 10 embedding
 - Table: Linear vector search
 - Table: ANN vector search
