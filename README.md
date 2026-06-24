@@ -19,7 +19,7 @@ Anne & Cecile has the same mother.
 Using some tiny llm, we can decompose to:
 
 ```txt
-(Anne)(is in. love)(Ben)
+(Anne)(is in love with)(Ben)
 (Cecile)(is sister)(Dakota)
 (Anne)(has same mother with)(Cecile)
 ```
@@ -32,17 +32,17 @@ What if an agent can just query "Find An who loves Dennis where Dennis is a frie
     "relates": {
         "love": [
             {
-                "entity": "Ben".
+                "entity": "Ben",
                 "relates": {}
             },
         ],
         "is sister": [
             {
-                "entity": "Cecilia".
+                "entity": "Cecilia",
                 "relates": {}
             }
             {
-                "entity": "Dakota"
+                "entity": "Dakota",
                 "relates": {}
             }
         ]
