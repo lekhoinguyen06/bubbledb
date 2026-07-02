@@ -12,8 +12,8 @@
 
 ## Next
 
-- Data: Get datasets (1 basic sentences, 1 paragraph, 1 book)
 - LLM: Create embedding endpoint using Nitro & ai-sdk
+- Data: Embed datasets (1 basic sentences, 1 paragraph, 1 book)
 - Schema: Add KVal, KVec, WAL, BasicBub databases
 - Table: Replace row
 - Row: Replace row
