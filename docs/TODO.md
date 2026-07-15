@@ -25,4 +25,5 @@
 - Query: Accept BubbleQL
 - Table: ANN vector search
 - Table: Predicate vector search
-- Saas: Use SvelteKit to create an interactive server
+- Saas: Design FE
+- Saas: Use Svelte + Deno to create an interactive server
