@@ -12,8 +12,7 @@
 
 ## Next
 
-- LLM: Create embedding endpoint using Nitro & ai-sdk
-- Runtime: Switch from Rocket to Tokio
+- LLM: Create embedding endpoint using Hono (Deno) & ai-sdk
 - Data: Embed datasets (1 basic sentences, 1 paragraph, 1 book)
 - Schema: Add KVal, KVec, WAL, BasicBub databases
 - Schema: Support table builder
@@ -22,6 +21,7 @@
 - Table: Delete row
 - Table: Clear
 - Table: Linear vector search
+- Test: Contract cases
 - Query: Accept BubbleQL
 - Table: ANN vector search
 - Table: Predicate vector search
