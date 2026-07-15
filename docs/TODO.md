@@ -26,4 +26,4 @@
 - Table: ANN vector search
 - Table: Predicate vector search
 - Saas: Design FE
-- Saas: Use Svelte + Deno to create an interactive server
+- Saas: Use Svelte + Nest to create an interactive server
