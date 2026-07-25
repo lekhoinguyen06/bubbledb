@@ -1,0 +1,18 @@
+{
+  "name": "llm",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "ai": "^7.0.37",
+    "ai-sdk-ollama": "^4.0.0",
+    "arktype": "^2.2.3",
+    "hono": "^4.12.32"
+  },
+  "devDependencies": {
+    "wrangler": "^4.110.0"
+  }
+}
