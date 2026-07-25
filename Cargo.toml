@@ -1,7 +1,6 @@
 [workspace]
 resolver = "3"
 members =[
-    "libs/core",
     "apps/llm", 
-    "apps/db"
-]
+    "apps/db", 
+    "libs/kv"]
