@@ -1,6 +1,5 @@
 import { generateText, Output, tool } from 'ai'
 import { ollama } from 'ai-sdk-ollama'
-import { type } from 'arktype'
 import { Hono } from 'hono'
 import { decompRoutes } from './routes/decomp'
 
