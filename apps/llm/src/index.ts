@@ -1,4 +1,4 @@
-import { generateText } from 'ai'
+import { generateText, Output, tool } from 'ai'
 import { ollama } from 'ai-sdk-ollama'
 import { type } from 'arktype'
 import { Hono } from 'hono'
@@ -6,12 +6,18 @@ import { Hono } from 'hono'
 const app = new Hono()
 
 const DecompReqBody = type({
-  prompt: "string",
+  sentence: "string",
   temp: "number = 0.8",
   maxOutputTokens: "number = 256",
 })
 
-app.post('/chat', async (c) => {
+const DecompResBody = type({
+  subject: "string",
+  relation: "string",
+  object: "string",
+})
+
+app.post('/decomp', async (c) => {
   const json = await c.req.json()
   const body = DecompReqBody(json)
 
@@ -19,14 +25,17 @@ app.post('/chat', async (c) => {
     return c.json({ error: body.summary }, 400)
   }
 
-  const { text, usage } = await generateText({
+  const { usage, output } = await generateText({
     model: ollama('gemma3:1b'),
-    prompt: body.prompt,
+    prompt: `Decompose the following sentence into subject, relation, and object: ${body.sentence}`,
     temperature: body.temp,
     maxOutputTokens: body.maxOutputTokens,
+    output: Output.object({
+      schema: DecompResBody,
+    })
   })
 
-  return c.json({ text, usage })
+  return c.json({ output, usage })
 })
 
 export default app
